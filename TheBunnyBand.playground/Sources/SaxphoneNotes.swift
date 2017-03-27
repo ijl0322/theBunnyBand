@@ -14,7 +14,7 @@ class SaxphoneNotes: Notes {
     //MARK: Initializer
     required init(name: String) {
         let newName = "saxphone/s_" + name
-        print("\(newName)")
+        //print("\(newName)")
         super.init(name: newName)
     }
 }

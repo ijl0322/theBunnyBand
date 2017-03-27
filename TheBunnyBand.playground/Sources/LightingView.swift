@@ -33,7 +33,7 @@ class LightingView: UIView {
         emitter.renderMode = kCAEmitterLayerOldestFirst
         
         cell.velocity = 5.0
-        cell.velocityRange = 700
+        cell.velocityRange = 50
         cell.yAcceleration = 10
         cell.xAcceleration = 0
         cell.scale = 1.0

@@ -14,7 +14,7 @@ class ViolinNotes: Notes {
     //MARK: Initializer
     required init(name: String) {
         let newName = "violin/v_" + name
-        print("\(newName)")
+        //print("\(newName)")
         super.init(name: newName)
     }
 }

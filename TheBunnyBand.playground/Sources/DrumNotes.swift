@@ -14,7 +14,7 @@ class DrumNotes: Notes {
     //MARK: Initializer
     required init(name: String) {
         let newName = "drum/d_" + name
-        print("\(newName)")
+        //print("\(newName)")
         super.init(name: newName)
     }
 }

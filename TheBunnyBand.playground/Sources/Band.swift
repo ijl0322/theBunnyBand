@@ -126,24 +126,20 @@ class Band: UIView {
     //This function takes an image, and rotate it around the point (anchorX and anchorY), to and from the fromAngle and toAngle.
     func rotateWithAnchor(image: UIView, anchorX: Double, anchorY: Double, fromAngle: Double, toAngle: Double){
         setAnchorPoint(anchorPoint: CGPoint(x: anchorX, y: anchorY), view: image)
-        if #available(iOS 10.0, *) {
-            let rotationInDegrees = Measurement(value: 45, unit: UnitAngle.degrees)
-            let rotationInRadians = CGFloat(rotationInDegrees.converted(to: .radians).value)
-            let transform = CATransform3DMakeRotation(rotationInRadians, 0, 0.0, 1.0)
-            image.layer.transform = transform
-            
-            let animation = CABasicAnimation(keyPath: "transform")
-            animation.fromValue = NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(Measurement(value: fromAngle, unit: UnitAngle.degrees).converted(to: .radians).value), 0, 0.0, 1.0))
-            animation.toValue = NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(Measurement(value: toAngle, unit: UnitAngle.degrees).converted(to: .radians).value), 0, 0.0, 1.0))
-            animation.duration = 2.0
-            animation.repeatCount = Float.infinity
-            animation.autoreverses = true
-            image.layer.add(animation, forKey: "rotateWithAnchor")
-        } else {
-            // Fallback on earlier versions
-        }
+
+        let rotationInDegrees = Measurement(value: 45, unit: UnitAngle.degrees)
+        let rotationInRadians = CGFloat(rotationInDegrees.converted(to: .radians).value)
+        let transform = CATransform3DMakeRotation(rotationInRadians, 0, 0.0, 1.0)
+        image.layer.transform = transform
+        
+        let animation = CABasicAnimation(keyPath: "transform")
+        animation.fromValue = NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(Measurement(value: fromAngle, unit: UnitAngle.degrees).converted(to: .radians).value), 0, 0.0, 1.0))
+        animation.toValue = NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(Measurement(value: toAngle, unit: UnitAngle.degrees).converted(to: .radians).value), 0, 0.0, 1.0))
+        animation.duration = 2.0
+        animation.repeatCount = Float.infinity
+        animation.autoreverses = true
+        image.layer.add(animation, forKey: "rotateWithAnchor")
     }
-    
     //MARK: Supporting functions
     
     //This function sets the anchorPoint of an UIView from the center to the anchor point specified 
