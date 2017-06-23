@@ -38,22 +38,10 @@ class SheetMusicView: UIImageView {
         drumButton = UIButton(frame: CGRect(x: 0.0 , y: 137.0, width: 68.5, height: 68.5))
         saxphoneButton = UIButton(frame: CGRect(x: 0.0 , y: 205.5, width: 68.5, height: 68.5))
         tromboneButton = UIButton(frame: CGRect(x: 0.0 , y: 274.0, width: 68.5, height: 68.5))
-        doneButton = UIButton(frame: CGRect(x: 680.0 , y: 274.0, width: 92.0, height: 44.0))
+        doneButton = UIButton(frame: CGRect(x: 660.0 , y: 274.0, width: 92.0, height: 44.0))
         yourTurnPage = UIImageView(frame: CGRect(x: 0.0 , y: 0.0, width: size.screenWidth.rawValue, height: 342.0))
         
-        infoButton.setImage(UIImage(named: "sheetMusicView/sheetMusicButton_info"), for: .normal)
-        tromboneButton.setImage(UIImage(named: "sheetMusicView/sheetMusicButton_t"), for: .normal)
-        drumButton.setImage(UIImage(named: "sheetMusicView/sheetMusicButton_d"), for: .normal)
-        violinButton.setImage(UIImage(named: "sheetMusicView/sheetMusicButton_v"), for: .normal)
-        saxphoneButton.setImage(UIImage(named: "sheetMusicView/sheetMusicButton_s"), for: .normal)
-        doneButton.setImage(UIImage(named: "sheetMusicView/sheetMusicButton_done"), for: .normal)
         yourTurnPage.image = UIImage(named: "sheetMusicView/yourTurn")
-        
-        infoButton.backgroundColor = darkGrey
-        violinButton.backgroundColor = UIColor.black
-        drumButton.backgroundColor = UIColor.black
-        saxphoneButton.backgroundColor = UIColor.black
-        tromboneButton.backgroundColor = UIColor.black
         
         infoButton.tag = 1
         violinButton.tag = 2
@@ -92,31 +80,21 @@ class SheetMusicView: UIImageView {
     
     //Show the music sheet of different instruments depending on which button the users tapped
     func buttonTapped(_ button: UIButton) {
-        infoButton.backgroundColor = UIColor.black
-        violinButton.backgroundColor = UIColor.black
-        drumButton.backgroundColor = UIColor.black
-        saxphoneButton.backgroundColor = UIColor.black
-        tromboneButton.backgroundColor = UIColor.black
         
         switch button.tag{
         case 1:
-            infoButton.backgroundColor = darkGrey
             self.image = UIImage(named: "sheetMusicView/sheetMusicIntro")
             break
         case 2:
-            violinButton.backgroundColor = darkGrey
             self.image = UIImage(named: "sheetMusicView/violinSheetMusic")
             break
         case 3:
-            drumButton.backgroundColor = darkGrey
             self.image = UIImage(named: "sheetMusicView/drumSheetMusic")
             break
         case 4:
-            saxphoneButton.backgroundColor = darkGrey
             self.image = UIImage(named: "sheetMusicView/saxphoneSheetMusic")
             break
         case 5:
-            tromboneButton.backgroundColor = darkGrey
             self.image = UIImage(named: "sheetMusicView/tromboneSheetMusic")
             break
         default:

@@ -60,13 +60,13 @@ class Band: UIView {
     func addSpotlight() {
         
         // Add left spot light
-        leftLight = UIImageView(frame: CGRect(x: 0.0 , y: 0.0, width: 250.0, height: 440.0))
+        leftLight = UIImageView(frame: CGRect(x: 0.0 , y: -10.0, width: 250.0, height: 440.0))
         leftLight.image = UIImage(named: "band/light_l")
         leftLight.alpha = 0
         self.addSubview(leftLight)
         
         // Add right spotlight
-        rightLight = UIImageView(frame: CGRect(x: 550.0 , y: 0.0, width: 250.0, height: 440.0))
+        rightLight = UIImageView(frame: CGRect(x: 520.0 , y: -10.0, width: 250.0, height: 440.0))
         rightLight.image = UIImage(named: "band/light_r")
         rightLight.alpha = 0
         self.addSubview(rightLight)
@@ -105,8 +105,8 @@ class Band: UIView {
     func stopAllAnimation(){
         
         //Move spotlights to it's original position
-        leftLight.transform = CGAffineTransform(rotationAngle: (0.0 * CGFloat(M_PI)) / 180.0)
-        rightLight.transform = CGAffineTransform(rotationAngle: (0.0 * CGFloat(M_PI)) / 180.0)
+        leftLight.transform = CGAffineTransform(rotationAngle: (0.0 * CGFloat(Double.pi)) / 180.0)
+        rightLight.transform = CGAffineTransform(rotationAngle: (0.0 * CGFloat(Double.pi)) / 180.0)
         
         //Slowly dim the spotlights
         UIView.animate(withDuration: 6, animations: {

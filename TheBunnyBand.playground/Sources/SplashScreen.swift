@@ -108,11 +108,11 @@ class SplashScreen: UIView {
             self.bandLogo.center.y = 273
         }, completion: {(finish: Bool) in
             UIView.animate(withDuration: 0.4, animations: {
-              self.bandLogo.transform = CGAffineTransform(rotationAngle: (-15.0 * CGFloat(M_PI)) / 180.0)
+              self.bandLogo.transform = CGAffineTransform(rotationAngle: (-15.0 * CGFloat(Double.pi)) / 180.0)
             }, completion: { (finish: Bool) in UIView.animate(withDuration: 0.3, animations: {
-                self.bandLogo.transform = CGAffineTransform(rotationAngle: (10.0 * CGFloat(M_PI)) / 180.0)
+                self.bandLogo.transform = CGAffineTransform(rotationAngle: (10.0 * CGFloat(Double.pi)) / 180.0)
             }, completion: {(finish: Bool) in UIView.animate(withDuration: 0.2, animations: {
-                self.bandLogo.transform = CGAffineTransform(rotationAngle: (0.0 * CGFloat(M_PI)) / 180.0)
+                self.bandLogo.transform = CGAffineTransform(rotationAngle: (0.0 * CGFloat(Double.pi)) / 180.0)
             }, completion: {(finish: Bool) in UIView.animate(withDuration: 0.2, animations: {
                 self.signature.center.y = 168
             }, completion: {(finish: Bool) in UIView.animate(withDuration: 1, delay: 1.2, animations: {

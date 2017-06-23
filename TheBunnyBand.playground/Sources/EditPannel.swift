@@ -35,6 +35,9 @@ class EditPannel: UIView {
         super.init(frame: CGRect(x: 0.0 , y: 0.0, width: size.screenWidth.rawValue, height: size.screenHeight.rawValue))
         self.addSubview(sheetMusicPage)
         sheetMusicPage.alpha = 0
+        let buttonPlaceholder = UIImageView(frame: CGRect(x: 0.0 , y: 0.0, width: size.screenWidth.rawValue, height: size.screenHeight.rawValue))
+        buttonPlaceholder.image = UIImage(named: "editPannel/buttonPlaceholder")
+        self.addSubview(buttonPlaceholder)
         
         addTromboneSlots()
         addSaxphoneSlots()
@@ -294,6 +297,7 @@ class EditPannel: UIView {
         menuTButton.setImage(UIImage(named: "editPannel/t_Button"), for: .normal)
         menuTButton.addTarget(self, action: #selector(showMenuButton(_:)), for: UIControlEvents.touchUpInside)
         self.addSubview(menuTButton)
+        
     }
     
     

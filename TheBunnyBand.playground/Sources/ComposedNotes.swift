@@ -76,12 +76,12 @@ class ComposedNotes {
         vNote.playNote()
         if let nextNote = self.next {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3){
-                print("playing next")
+                //print("playing next")
                 nextNote.playSong()
             }
         } else {
             delegate?.musicEnded()
-            print("song ended")
+            //print("song ended")
         }
     }
     

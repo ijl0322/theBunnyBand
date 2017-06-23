@@ -16,12 +16,12 @@ public class ViewController: UIViewController, MusicStatusDelegate, InfoViewDele
     var tempEditPannel: EditPannel?
     
     let startButton = UIButton(frame: CGRect(x: 620.0 , y: 500.0, width: 100.0, height: 100.0))
-    let sheetMusicButton = UIButton(frame: CGRect(x: 560.0 , y: 540.0, width: 60.0, height: 60.0))
-    let infoButton = UIButton(frame: CGRect(x: 620.0 , y: 540.0, width: 60.0, height: 60.0))
-    let playButton = UIButton(frame: CGRect(x: 680.0 , y: 540.0, width: 60.0, height: 60.0))
-    let clearButton = UIButton(frame: CGRect(x: 740.0 , y: 540.0, width: 60.0, height: 60.0))
+    let sheetMusicButton = UIButton(frame: CGRect(x: 530.0 , y: 540.0, width: 60.0, height: 60.0))
+    let infoButton = UIButton(frame: CGRect(x: 590.0 , y: 540.0, width: 60.0, height: 60.0))
+    let playButton = UIButton(frame: CGRect(x: 650.0 , y: 540.0, width: 60.0, height: 60.0))
+    let clearButton = UIButton(frame: CGRect(x: 710.0 , y: 540.0, width: 60.0, height: 60.0))
     
-    let stage = UIImageView(frame: CGRect(x: 0, y: 0, width: 800, height: 600))
+    let stage = UIImageView(frame: CGRect(x: 0, y: 0, width: 770, height: 600))
     var isFirstLaunch = true
     
     let lightingView = LightingView()
@@ -32,7 +32,7 @@ public class ViewController: UIViewController, MusicStatusDelegate, InfoViewDele
 
     override public func viewDidLoad() {
         super.viewDidLoad()
-        self.view.frame = CGRect(x: 0, y: 0, width: 900, height: 600)
+        self.view.frame = CGRect(x: 0, y: 0, width: 770, height: 600)
         setUp()
     }
     
@@ -160,8 +160,8 @@ public class ViewController: UIViewController, MusicStatusDelegate, InfoViewDele
         band.startBand()
         playButton.isEnabled = false
         clearButton.isEnabled = false
-        self.playButton.alpha = 0.7
-        self.clearButton.alpha = 0.7
+        self.playButton.alpha = 0
+        self.clearButton.alpha = 0
         self.lightingView.alpha = 1
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
             self.editPannel!.playSong()
@@ -177,8 +177,9 @@ public class ViewController: UIViewController, MusicStatusDelegate, InfoViewDele
         animation.duration = 0.5
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
         animation.autoreverses = true
-        animation.repeatCount = FLT_MAX
+        animation.repeatCount = Float.greatestFiniteMagnitude
         view.layer.add(animation, forKey: key)
+        
     }
 }
 
