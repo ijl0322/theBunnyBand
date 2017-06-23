@@ -1,4 +1,6 @@
-# theBunnyBand
+# The Bunny Band
+
+I received a scholarship from Apple Inc. to attend WWDC 2017. This is my student scholarship submission. 
 
 The bunny band is an interactive playground that allows users to orchestrate a band to play any music they want, simply by dragging music notes of a particular instrument into slots of that instrument.
 
