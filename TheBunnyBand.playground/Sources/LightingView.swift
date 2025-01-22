@@ -18,7 +18,7 @@ class LightingView: UIView {
         let emitter = layer as! CAEmitterLayer
         emitter.emitterPosition = CGPoint(x: bounds.size.width / 2, y: 0)
         emitter.emitterSize = bounds.size
-        emitter.emitterShape = kCAEmitterLayerRectangle
+        emitter.emitterShape = CAEmitterLayerEmitterShape.rectangle
         
         let cell = CAEmitterCell()
         cell.contents = UIImage(named: "main/sparkle.png")!.cgImage
@@ -28,9 +28,9 @@ class LightingView: UIView {
         
         emitter.emitterCells = [cell]
         emitter.emitterPosition = CGPoint(x: 400, y: 300)
-        emitter.emitterShape = kCAEmitterLayerSphere
+        emitter.emitterShape = CAEmitterLayerEmitterShape.sphere
         emitter.emitterSize = CGSize(width: 800, height: 800)
-        emitter.renderMode = kCAEmitterLayerOldestFirst
+        emitter.renderMode = CAEmitterLayerRenderMode.oldestFirst
         
         cell.velocity = 5.0
         cell.velocityRange = 50

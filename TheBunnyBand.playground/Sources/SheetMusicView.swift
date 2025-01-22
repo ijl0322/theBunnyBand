@@ -49,12 +49,12 @@ class SheetMusicView: UIImageView {
         saxphoneButton.tag = 4
         tromboneButton.tag = 5
         
-        infoButton.addTarget(self, action: #selector(buttonTapped), for: UIControlEvents.touchUpInside)
-        violinButton.addTarget(self, action: #selector(buttonTapped), for: UIControlEvents.touchUpInside)
-        drumButton.addTarget(self, action: #selector(buttonTapped), for: UIControlEvents.touchUpInside)
-        saxphoneButton.addTarget(self, action: #selector(buttonTapped), for: UIControlEvents.touchUpInside)
-        tromboneButton.addTarget(self, action: #selector(buttonTapped), for: UIControlEvents.touchUpInside)
-        doneButton.addTarget(self, action: #selector(doneButtonTapped), for: UIControlEvents.touchUpInside)
+        infoButton.addTarget(self, action: #selector(buttonTapped), for: UIControl.Event.touchUpInside)
+        violinButton.addTarget(self, action: #selector(buttonTapped), for: UIControl.Event.touchUpInside)
+        drumButton.addTarget(self, action: #selector(buttonTapped), for: UIControl.Event.touchUpInside)
+        saxphoneButton.addTarget(self, action: #selector(buttonTapped), for: UIControl.Event.touchUpInside)
+        tromboneButton.addTarget(self, action: #selector(buttonTapped), for: UIControl.Event.touchUpInside)
+        doneButton.addTarget(self, action: #selector(doneButtonTapped), for: UIControl.Event.touchUpInside)
         
         self.addSubview(infoButton)
         self.addSubview(violinButton)
@@ -70,7 +70,7 @@ class SheetMusicView: UIImageView {
         yourTurnPage.isUserInteractionEnabled = true
         let okButton = UIButton(frame: CGRect(x: 680.0 , y: 274.0, width: 92.0, height: 44.0))
         okButton.setImage(UIImage(named: "infoView/okButton"), for: .normal)
-        okButton.addTarget(self, action: #selector(okButtonTapped), for: UIControlEvents.touchUpInside)
+        okButton.addTarget(self, action: #selector(okButtonTapped), for: UIControl.Event.touchUpInside)
         okButton.tag = 6
         yourTurnPage.addSubview(okButton)
         self.addSubview(yourTurnPage)
@@ -79,7 +79,7 @@ class SheetMusicView: UIImageView {
     //MARK: UIButton action
     
     //Show the music sheet of different instruments depending on which button the users tapped
-    func buttonTapped(_ button: UIButton) {
+    @objc func buttonTapped(_ button: UIButton) {
         
         switch button.tag{
         case 1:
@@ -103,12 +103,12 @@ class SheetMusicView: UIImageView {
     }
     
     //Hides the view when the user taps the done button
-    func doneButtonTapped(_ button: UIButton){
+    @objc func doneButtonTapped(_ button: UIButton){
         self.alpha = 0
         self.superview?.backgroundColor = UIColor.clear
     }
     
-    func okButtonTapped(_ button: UIButton){
+    @objc func okButtonTapped(_ button: UIButton){
         self.alpha = 0
         self.superview?.backgroundColor = UIColor.clear
         yourTurnPage.removeFromSuperview()

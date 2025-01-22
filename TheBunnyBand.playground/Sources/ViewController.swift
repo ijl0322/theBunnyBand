@@ -45,7 +45,7 @@ public class ViewController: UIViewController, MusicStatusDelegate, InfoViewDele
     // Sets up the view, load the edit pannel in the background thread
     func setUp() {
         startButton.setImage(UIImage(named: "main/startButton"), for: .normal)
-        startButton.addTarget(self, action: #selector(startButton(_:)), for: UIControlEvents.touchUpInside)
+        startButton.addTarget(self, action: #selector(startButton(_:)), for: UIControl.Event.touchUpInside)
         infoPage.delegate = self
         
         DispatchQueue.global(qos: .background).async {
@@ -68,25 +68,25 @@ public class ViewController: UIViewController, MusicStatusDelegate, InfoViewDele
     func addButtons() {
         
         sheetMusicButton.setImage(UIImage(named: "main/sheetMusicButton"), for: .normal)
-        sheetMusicButton.addTarget(self, action: #selector(sheetMusicButton(_:)), for: UIControlEvents.touchUpInside)
+        sheetMusicButton.addTarget(self, action: #selector(sheetMusicButton(_:)), for: UIControl.Event.touchUpInside)
         self.view.addSubview(sheetMusicButton)
         
         playButton.setImage(UIImage(named: "main/playButton"), for: .normal)
-        playButton.addTarget(self, action: #selector(playButton(_:)), for: UIControlEvents.touchUpInside)
+        playButton.addTarget(self, action: #selector(playButton(_:)), for: UIControl.Event.touchUpInside)
         self.view.addSubview(playButton)
         
         clearButton.setImage(UIImage(named: "main/clearAllButton"), for: .normal)
-        clearButton.addTarget(self, action: #selector(clearButton(_:)), for: UIControlEvents.touchUpInside)
+        clearButton.addTarget(self, action: #selector(clearButton(_:)), for: UIControl.Event.touchUpInside)
         self.view.addSubview(clearButton)
         
         infoButton.setImage(UIImage(named: "main/infoButton"), for: .normal)
-        infoButton.addTarget(self, action: #selector(infoButton(_:)), for: UIControlEvents.touchUpInside)
+        infoButton.addTarget(self, action: #selector(infoButton(_:)), for: UIControl.Event.touchUpInside)
         self.view.addSubview(infoButton)
     }
     
     //Gets called when the edit pannel is done loading and the user taps start.
     //Adds all appropriate subviews, and show the info page.
-    func startButton(_ button: UIButton) {
+    @objc func startButton(_ button: UIButton) {
         startButton.removeFromSuperview()
         splashScreen.removeSplashScreen()
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.3) {
@@ -105,27 +105,27 @@ public class ViewController: UIViewController, MusicStatusDelegate, InfoViewDele
     
     //Gets called when the info button is tapped. 
     //Shows the info page
-    func infoButton(_ button: UIButton!) {
+    @objc func infoButton(_ button: UIButton!) {
         self.view.addSubview(infoPage)
         infoPage.showInfo()
     }
     
     //Gets called when the play button is tapped. 
     //Start the performance
-    func playButton(_ button: UIButton!) {
+    @objc func playButton(_ button: UIButton!) {
         startPerformance()
     }
     
     //Gets called when the clear button is tapped.
     //Clear all the notes in the edit pannel. Allowing the user to start a new song.
-    func clearButton(_ button: UIButton!) {
+    @objc func clearButton(_ button: UIButton!) {
         editPannel!.clearAll()
     }
     
     
     //Gets called when the sheetMusicButton is tapped. 
     //Shows the sheet Music page
-    func sheetMusicButton(_ button: UIButton!) {
+    @objc func sheetMusicButton(_ button: UIButton!) {
         editPannel!.showSheetMusicPage()
     }
     
@@ -175,7 +175,7 @@ public class ViewController: UIViewController, MusicStatusDelegate, InfoViewDele
         animation.fromValue = 1.0
         animation.toValue = 0.0
         animation.duration = 0.5
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
         animation.autoreverses = true
         animation.repeatCount = Float.greatestFiniteMagnitude
         view.layer.add(animation, forKey: key)

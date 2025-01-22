@@ -66,22 +66,22 @@ class InfoView: UIView {
     
     func buttonsSetUp() {
         self.nextButton1 = UIButton(frame: CGRect(x: 660.0 , y: 525.0, width: 77, height: 44))
-        self.nextButton1.addTarget(self, action: #selector(buttonTapped), for: UIControlEvents.touchUpInside)
+        self.nextButton1.addTarget(self, action: #selector(buttonTapped), for: UIControl.Event.touchUpInside)
         self.nextButton1.tag = 1
         self.nextButton1.setImage(UIImage(named: "infoView/nextButton"), for: .normal)
         
         self.nextButton2 = UIButton(frame: CGRect(x: 660.0 , y: 525.0, width: 77, height: 44))
-        self.nextButton2.addTarget(self, action: #selector(buttonTapped), for: UIControlEvents.touchUpInside)
+        self.nextButton2.addTarget(self, action: #selector(buttonTapped), for: UIControl.Event.touchUpInside)
         self.nextButton2.tag = 2
         self.nextButton2.setImage(UIImage(named: "infoView/nextButton"), for: .normal)
         
         self.okButton = UIButton(frame: CGRect(x: 660.0 , y: 525.0, width: 77, height: 44))
-        self.okButton.addTarget(self, action: #selector(buttonTapped), for: UIControlEvents.touchUpInside)
+        self.okButton.addTarget(self, action: #selector(buttonTapped), for: UIControl.Event.touchUpInside)
         self.okButton.tag = 3
         self.okButton.setImage(UIImage(named: "infoView/okButton"), for: .normal)
         
         self.okButton2 = UIButton(frame: CGRect(x: 660.0 , y: 525.0, width: 77, height: 44))
-        self.okButton2.addTarget(self, action: #selector(buttonTapped), for: UIControlEvents.touchUpInside)
+        self.okButton2.addTarget(self, action: #selector(buttonTapped), for: UIControl.Event.touchUpInside)
         self.okButton2.tag = 4
         self.okButton2.setImage(UIImage(named: "infoView/okButton"), for: .normal)
         
@@ -91,7 +91,7 @@ class InfoView: UIView {
         self.info4.addSubview(okButton2)
     }
 
-    func buttonTapped(_ button: UIButton!) {
+    @objc func buttonTapped(_ button: UIButton!) {
         switch button.tag {
         case 1:
             info1.removeFromSuperview()

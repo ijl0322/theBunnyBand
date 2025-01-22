@@ -106,17 +106,17 @@ class EditPannel: UIView {
     //MARK: UIButton actions
     
     //Play the song composed by the user
-    func playButton(_ button: UIButton!) {
+    @objc func playButton(_ button: UIButton!) {
         composedNoteList[0].playSong()
     }
     
     //Clear all notes added by the user so the user can start a new song.
-    func clearSongButton(_ button: UIButton!) {
+    @objc func clearSongButton(_ button: UIButton!) {
         clearAll()
     }
     
     //Hide and show note buttons of different instruments depending on which instrument button is tapped.
-    func showMenuButton(_ button: UIButton!) {
+    @objc func showMenuButton(_ button: UIButton!) {
         
         switch button.tag {
         //Saxphone
@@ -153,7 +153,7 @@ class EditPannel: UIView {
     }
     
     //MARK: Gesture recognizer function
-    func handleTap(_ recognizer: UITapGestureRecognizer){
+    @objc func handleTap(_ recognizer: UITapGestureRecognizer){
         guard let view = recognizer.view else {
             print("cannot unwrap in function handleTap")
             return
@@ -184,7 +184,7 @@ class EditPannel: UIView {
     }
     
     
-    func handlePan(_ recognizer: UIPanGestureRecognizer){
+    @objc func handlePan(_ recognizer: UIPanGestureRecognizer){
         
         let translation = recognizer.translation(in: recognizer.view)
         if let view = recognizer.view {
@@ -216,7 +216,7 @@ class EditPannel: UIView {
         }
         
         
-        if recognizer.state == UIGestureRecognizerState.ended {
+      if recognizer.state == UIGestureRecognizer.State.ended {
             
             for i in 0...numSlots{
                 handleMove(imgTag: typeTag + i, recognizer: recognizer)
@@ -266,22 +266,22 @@ class EditPannel: UIView {
     func addButtons() {
         let playButton: UIButton = UIButton(frame: CGRect(x: 800.0 , y: 850.0, width: 120.0, height: 50.0))
         playButton.backgroundColor = UIColor.white
-        playButton.addTarget(self, action: #selector(playButton(_:)), for: UIControlEvents.touchUpInside)
+        playButton.addTarget(self, action: #selector(playButton(_:)), for: UIControl.Event.touchUpInside)
         self.addSubview(playButton)
         
         let clearButton: UIButton = UIButton(frame: CGRect(x: 900, y: 850.0, width: 120.0, height: 50.0))
         clearButton.backgroundColor = UIColor.red
-        clearButton.addTarget(self, action: #selector(clearSongButton(_:)), for: UIControlEvents.touchUpInside)
+        clearButton.addTarget(self, action: #selector(clearSongButton(_:)), for: UIControl.Event.touchUpInside)
         self.addSubview(clearButton)
         
         let menuSButton: UIButton = UIButton(frame: CGRect(x: 0, y: 500.0, width: controlButtonSize, height: controlButtonSize))
         menuSButton.tag = 1
         menuSButton.setImage(UIImage(named: "editPannel/s_Button"), for: .normal)
-        menuSButton.addTarget(self, action: #selector(showMenuButton(_:)), for: UIControlEvents.touchUpInside)
+        menuSButton.addTarget(self, action: #selector(showMenuButton(_:)), for: UIControl.Event.touchUpInside)
         self.addSubview(menuSButton)
         
         let menuDButton: UIButton = UIButton(frame: CGRect(x: controlButtonSize, y: 500.0, width: controlButtonSize, height: controlButtonSize))
-        menuDButton.addTarget(self, action: #selector(showMenuButton(_:)), for: UIControlEvents.touchUpInside)
+        menuDButton.addTarget(self, action: #selector(showMenuButton(_:)), for: UIControl.Event.touchUpInside)
         menuDButton.tag = 2
         menuDButton.setImage(UIImage(named: "editPannel/d_Button"), for: .normal)
         self.addSubview(menuDButton)
@@ -289,13 +289,13 @@ class EditPannel: UIView {
         let menuVButton: UIButton = UIButton(frame: CGRect(x: 0, y: 500.0 + controlButtonSize, width: controlButtonSize, height: controlButtonSize))
         menuVButton.tag = 3
         menuVButton.setImage(UIImage(named: "editPannel/v_Button"), for: .normal)
-        menuVButton.addTarget(self, action: #selector(showMenuButton(_:)), for: UIControlEvents.touchUpInside)
+        menuVButton.addTarget(self, action: #selector(showMenuButton(_:)), for: UIControl.Event.touchUpInside)
         self.addSubview(menuVButton)
         
         let menuTButton: UIButton = UIButton(frame: CGRect(x: controlButtonSize, y: 500.0 + controlButtonSize, width: controlButtonSize, height: controlButtonSize))
         menuTButton.tag = 4
         menuTButton.setImage(UIImage(named: "editPannel/t_Button"), for: .normal)
-        menuTButton.addTarget(self, action: #selector(showMenuButton(_:)), for: UIControlEvents.touchUpInside)
+        menuTButton.addTarget(self, action: #selector(showMenuButton(_:)), for: UIControl.Event.touchUpInside)
         self.addSubview(menuTButton)
         
     }

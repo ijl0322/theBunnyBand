@@ -42,7 +42,7 @@ class NoteButtons: UIImageView, UIGestureRecognizerDelegate {
     //MARK: Gesture Recognizer Function
     
     //Plays the note when the button is tapped
-    func handleTap(_: UITapGestureRecognizer){
+    @objc func handleTap(_: UITapGestureRecognizer){
         SharedAudioPlayer.player.playNote(name: fullName)
     }
 }
